@@ -1,0 +1,6 @@
+{
+  "port": 5000,
+  "jwtSecret": "secret's secret. this information is very secret. kostya developer",
+  "mongoUri": "mongodb+srv://konstantin:N3ykzY2LaBoaeFIh@cluster0.iyaj6.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "http://localhost:5000"
+}

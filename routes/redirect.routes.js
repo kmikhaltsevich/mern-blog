@@ -8,10 +8,8 @@ router.get('/:code', async (req, res) => {
     if (link) {
       link.clicks++
       await link.save()
-      // res.json({message: '123'})
       return res.redirect(link.to)
     }
-
     res.status(404).json({ message: 'Link is not found' })
   } catch (e) {
     res.status(500).json({ message: 'Server error' })

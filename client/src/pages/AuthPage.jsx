@@ -27,14 +27,14 @@ const AuthPage = () => {
   const registerHandler = async () => {
     try {
       const data = await request('/api/auth/register', 'POST', { ...form })
-      message(data.message)
+      message(data.msg)
     } catch (e) {}
   }
 
   const loginHandler = async () => {
     try {
       const data = await request('/api/auth/login', 'POST', { ...form })
-      message(data.message)
+      message(data.msg)
       auth.login(data.token, data.userId)
     } catch (e) {}
   }

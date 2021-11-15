@@ -15,14 +15,14 @@ export const useHttp = () => {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.message || 'Something is wrong')
+        throw new Error(data.msg || 'Something is wrong')
       }
 
       setLoading(false)
       return data
     } catch (e) {
       setLoading(false)
-      setError(e.message)
+      setError(e.msg)
       throw e
     }
   }, [])

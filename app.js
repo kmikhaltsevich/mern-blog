@@ -6,9 +6,11 @@ const path = require('path')
 const app = express()
 
 app.use(express.json({ extended: true }))
+app.use('/static', express.static('static'))
 
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/link', require('./routes/link.routes'))
+app.use('/api/post', require('./routes/post.routes'))
 app.use('/t', require('./routes/redirect.routes'))
 
 if (process.env.NODE_ENV === 'production') {
@@ -26,9 +28,8 @@ async function start () {
     await mongoose.connect(config.get('mongoUri'))
     app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
   } catch (e) {
-    console.log('Server error', e.message)
+    console.log('Server error', e.msg)
     process.exit(1)
   }
 }
-
 start()

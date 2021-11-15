@@ -24,7 +24,7 @@ class LinkController {
 
       res.status(201).json({ link })
     } catch (e) {
-      res.status(500).json({ message: 'Server error' })
+      res.status(500).json({ msg: 'Server error' })
     }
   }
 
@@ -33,7 +33,7 @@ class LinkController {
       const links = await Link.find({ owner: req.user.userId })
       res.json(links)
     } catch (e) {
-      res.status(500).json({ message: 'Server error' })
+      res.status(500).json({ msg: 'Server error' })
     }
   }
 
@@ -42,7 +42,7 @@ class LinkController {
       const link = await Link.findById(req.params.id)
       res.json(link)
     } catch (e) {
-      res.status(500).json({ message: 'Server error' })
+      res.status(500).json({ msg: 'Server error' })
     }
   }
 }
